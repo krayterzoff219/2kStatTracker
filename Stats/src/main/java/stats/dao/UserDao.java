@@ -17,8 +17,10 @@ public interface UserDao {
     boolean create(String username, String password);
 
 
-    List<Game> getGamesByTeams (Team team1, Team team2);
-    void addStatsForPlayer (IndGame stats);
+    List<Game> getGamesByTeams (String team1, String team2);
+    boolean addPlayer (Player player);
+    boolean addStatsForPlayer (IndGame stats);
+    boolean addStatsForGame (Game game);
     Stat getMaxByStat (String stat);
     double getPerGameStat (String stat, String playerName);
     TotalPlayerStats getPlayerStats(String playerName);

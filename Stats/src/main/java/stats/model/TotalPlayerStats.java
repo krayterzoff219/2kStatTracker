@@ -14,10 +14,10 @@ public class TotalPlayerStats {
     private int turnovers;
     private int fgm;
     private int fga;
-    @JsonProperty("threes_made")
-    private int threesMade;
     @JsonProperty("threes_attempted")
     private int threesAttempted;
+    @JsonProperty("threes_made")
+    private int threesMade;
     private int ftm;
     private int fta;
     @JsonProperty("off_rebounds")

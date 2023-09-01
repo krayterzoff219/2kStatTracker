@@ -3,6 +3,7 @@ package stats.dao;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -25,14 +26,93 @@ public class JdbcUserDao implements UserDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+
     @Override
-    public List<Game> getGamesByTeams(Team team1, Team team2) {
-        return null;
+    public List<Game> getGamesByTeams(String team1, String team2) {
+        String sql = "SELECT * FROM game WHERE home_team_id = " +
+                "(SELECT id FROM team WHERE nickname = ?) " +
+                " AND away_team_id = (SELECT id FROM team WHERE nickname = ?);";
+        String reverseSQL = "SELECT * FROM game WHERE away_team_id = " +
+                "(SELECT id FROM team WHERE nickname = ?) " +
+                " AND home_team_id = (SELECT id FROM team WHERE nickname = ?);";
+        List<Game> gameList = new ArrayList<>();
+        try {
+            SqlRowSet row = jdbcTemplate.queryForRowSet(sql, team1, team2);
+            while(row.next()){
+                Game game = new Game();
+
+                game.setHomeName(getTeamById(row.getInt("home_team_id")));
+                game.setAwayName(getTeamById(row.getInt("away_team_id")));
+                game.setHomeScore(row.getInt("home_team_score"));
+                game.setAwayScore(row.getInt("away_team_score"));
+                gameList.add(game);
+            }
+            row = jdbcTemplate.queryForRowSet(reverseSQL, team1, team2);
+            while(row.next()){
+                Game game = new Game();
+                game.setHomeName(getTeamById(row.getInt("home_team_id")));
+                game.setAwayName(getTeamById(row.getInt("away_team_id")));
+                game.setHomeScore(row.getInt("home_team_score"));
+                game.setAwayScore(row.getInt("away_team_score"));
+                gameList.add(game);
+            }
+        } catch (ResourceAccessException e){
+            System.out.println(e.getMessage());
+        }
+
+        return gameList;
+    }
+
+    public boolean addPlayer (Player player){
+        String sql = "INSERT INTO player (team_id, name) VALUES (?, ?) RETURNING id;";
+        try {
+            SqlRowSet row = jdbcTemplate.queryForRowSet(sql, getIdByTeam(player.getTeamName()), player.getName());
+        } catch (ResourceAccessException e){
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
     }
 
     @Override
-    public void addStatsForPlayer(IndGame stats) {
+    public boolean addStatsForPlayer(IndGame stats) {
+        String sql = "INSERT INTO ind_game (game_id, player_id, points, rebounds, assists, steals, blocks, turnovers, fga, fgm, threes_attempted, " +
+                "threes_made, fta, ftm, off_rebounds, fouls, dunks) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) " +
+                "RETURNING id;";
+        try {
+            int newId = jdbcTemplate.queryForObject(sql, Integer.class, stats.getGameId(), getIdByPlayer(stats.getPlayerName()), stats.getPoints(),
+                    stats.getRebounds(), stats.getAssists(), stats.getSteals(), stats.getBlocks(), stats.getTurnovers(),
+                    stats.getFga(), stats.getFgm(), stats.getThreesAttempted(), stats.getThreesMade(), stats.getFta(),
+                    stats.getFtm(), stats.getOffRebounds(), stats.getFouls(), stats.getDunks());
+            if (newId < 1){
+                return false;
+            }
+        } catch (ResourceAccessException e) {
+            System.out.println(e.getMessage());
+            return false;
+        } catch (NullPointerException e){
+            return false;
+        }
 
+        return true;
+    }
+
+    public boolean addStatsForGame(Game game){
+        String sql = "INSERT INTO game (home_team_id, home_team_score, away_team_id, away_team_score) VALUES (?, ?, ?, ?) RETURNING id;";
+        try {
+            int newId = jdbcTemplate.queryForObject(sql, Integer.class, getIdByTeam(game.getHomeName()), game.getHomeScore(),
+                    getIdByTeam(game.getAwayName()), game.getAwayScore());
+            if (newId < 1){
+                return false;
+            }
+        } catch (ResourceAccessException e){
+            System.out.println(e.getMessage());
+            return false;
+        } catch (NullPointerException e){
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -66,16 +146,96 @@ public class JdbcUserDao implements UserDao {
 
     @Override
     public double getPerGameStat(String stat, String playerName) {
-        String sql = "SELECT (SUM(?) / COUNT(?)) AS stat FROM ind_game WHERE name = ?;";
-        return 0;
+        String sql = "SELECT SUM(" + stat + ") AS total, COUNT(" + stat + ") AS games FROM ind_game JOIN player ON player_id = player.id " +
+                "WHERE name = '" + playerName + "';";
+        double perGame = 0.0;
+        try {
+            SqlRowSet row = jdbcTemplate.queryForRowSet(sql);
+            if(row.next()){
+                int total = row.getInt("total");
+                int games = row.getInt("games");
+                perGame = (double) total / games;
+            }
+        } catch (ResourceAccessException e){
+            System.out.println(e.getMessage());
+        }
+        return perGame;
     }
 
     @Override
     public TotalPlayerStats getPlayerStats(String playerName) {
-        return null;
+        String sql = "SELECT * FROM ind_game WHERE player_id = ?;";
+        TotalPlayerStats stats = new TotalPlayerStats();
+        try {
+            SqlRowSet row = jdbcTemplate.queryForRowSet(sql, getIdByPlayer(playerName));
+            while(row.next()){
+                stats.setPlayerId(row.getInt("player_id"));
+                stats.setPoints(stats.getPoints() + row.getInt("points"));
+                stats.setAssists(stats.getAssists() + row.getInt("assists"));
+                stats.setRebounds(stats.getRebounds() + row.getInt("rebounds"));
+                stats.setSteals(stats.getSteals() + row.getInt("steals"));
+                stats.setBlocks(stats.getBlocks() + row.getInt("blocks"));
+                stats.setFouls(stats.getFouls() + row.getInt("fouls"));
+                stats.setFga(stats.getFga() + row.getInt("fga"));
+                stats.setFgm(stats.getFgm() + row.getInt("fgm"));
+                stats.setThreesAttempted(stats.getThreesAttempted() + row.getInt("threes_attempted"));
+                stats.setThreesMade(stats.getThreesMade() + row.getInt("threes_made"));
+                stats.setFta(stats.getFta() + row.getInt("fta"));
+                stats.setFtm(stats.getFtm() + row.getInt("ftm"));
+                stats.setOffRebounds(stats.getOffRebounds() + row.getInt("off_rebounds"));
+                stats.setTurnovers(stats.getTurnovers() + row.getInt("turnovers"));
+                stats.setDunks(stats.getDunks() + row.getInt("dunks"));
+            }
+        } catch (ResourceAccessException e){
+            System.out.println(e.getMessage());
+        }
+        return stats;
     }
 
 
+
+
+    public String getTeamById(int id){
+        String sql = "SELECT nickname FROM team WHERE id = ?;";
+        String nickname = "";
+        try {
+            SqlRowSet row = jdbcTemplate.queryForRowSet(sql, id);
+            if (row.next()){
+                nickname = row.getString("nickname");
+            }
+        } catch (ResourceAccessException e){
+            System.out.println(e.getMessage());
+        }
+        return nickname;
+    }
+
+    public int getIdByTeam (String nickname){
+        String sql = "SELECT id FROM team WHERE nickname = ?;";
+        int id = -1;
+        try {
+            SqlRowSet row = jdbcTemplate.queryForRowSet(sql, nickname);
+            if (row.next()){
+                id = row.getInt("id");
+            }
+        } catch (ResourceAccessException e){
+            System.out.println(e.getMessage());
+        }
+        return id;
+    }
+
+    public int getIdByPlayer(String name){
+        String sql = "SELECT id FROM player WHERE name = ?;";
+        int id = -1;
+        try {
+            SqlRowSet row = jdbcTemplate.queryForRowSet(sql, name);
+            if (row.next()){
+                id = row.getInt("id");
+            }
+        } catch (ResourceAccessException e){
+            System.out.println(e.getMessage());
+        }
+        return id;
+    }
 
 
 

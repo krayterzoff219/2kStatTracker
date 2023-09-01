@@ -4,26 +4,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Player {
 
-    private int id;
-    private int team_id;
+    @JsonProperty("team_name")
+    private String teamName;
 
     private String name;
 
 
-    public int getId() {
-        return id;
+    public String getTeamName() {
+        return teamName;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getTeam_id() {
-        return team_id;
-    }
-
-    public void setTeam_id(int team_id) {
-        this.team_id = team_id;
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
     }
 
     public String getName() {

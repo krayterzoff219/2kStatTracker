@@ -3,11 +3,11 @@ package stats.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class IndGame {
-    private int id;
+
     @JsonProperty("game_id")
     private int gameId;
-    @JsonProperty("player_id")
-    private int playerId;
+    @JsonProperty("player_name")
+    private String playerName;
     private int points;
     private int rebounds;
     private int assists;
@@ -27,13 +27,7 @@ public class IndGame {
     private int fouls;
     private int dunks;
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getGameId() {
         return gameId;
@@ -43,12 +37,12 @@ public class IndGame {
         this.gameId = gameId;
     }
 
-    public int getPlayerId() {
-        return playerId;
+    public String getPlayerName() {
+        return playerName;
     }
 
-    public void setPlayerId(int playerId) {
-        this.playerId = playerId;
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 
     public int getPoints() {
