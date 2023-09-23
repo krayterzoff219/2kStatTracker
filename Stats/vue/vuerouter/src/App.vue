@@ -1,3 +1,20 @@
+<template>
+  <header-nav/>
+  <router-view/>
+</template>
+
+<script>
+import HeaderNav from './components/HeaderNav.vue'
+
+export default {
+  components: {
+    HeaderNav
+  }
+}
+</script>
+
+
+<style>
 body {
     font-size: large;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -66,7 +83,7 @@ a{
     color: black;
 }
 
-main {
+.wrap {
     display: flex;
     height: 87vh;
     align-items: center;
@@ -146,3 +163,4 @@ label{
     color: white;
     text-align: center;
 }
+</style>

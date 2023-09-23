@@ -9,6 +9,7 @@ import stats.model.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @PreAuthorize("permitAll()")
 @RequestMapping(path = "/2kstats")
 public class AppController {
@@ -18,7 +19,7 @@ public class AppController {
 
 
     @RequestMapping(path = "/max/{stat}", method = RequestMethod.GET)
-    public Stat getMaxByStat (@PathVariable String stat){
+    public List<Stat> getMaxByStat (@PathVariable String stat){
         return userDao.getMaxByStat(stat);
     }
 
@@ -50,5 +51,10 @@ public class AppController {
     @RequestMapping(path = "/player", method = RequestMethod.POST)
     public boolean addPlayer(@RequestBody Player player){
         return userDao.addPlayer(player);
+    }
+
+    @RequestMapping(path = "/{team}/players", method = RequestMethod.GET)
+    public List<String> getPlayersByTeam(@PathVariable String team){
+        return userDao.getPlayersByTeam(team);
     }
 }

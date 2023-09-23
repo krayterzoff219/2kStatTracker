@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buchak 2k Stat Tracker</title>
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous"> -->
+    <link rel = "stylesheet" href = "style.css"/>
+    
+</head>
+<body>
+    
+    <header>
+        <h1>2024 2k Season Stats</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href = "index.html">Home</a>
+                </li>
+                <li>
+                    <a href = "addStats.html">Add Stats</a>
+                </li>
+                <li>
+                    <a href = "updateStats.html">Update Stats</a>
+                </li>
+                <li>
+                    <a href = "analyzeStats.html">Analyze Stats</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class = "wrap">
+        <main>
+
+            <div class = "text">
+                <h2>Add Stats</h2>
+                <form class = "d-none" id="add-player">
+                    <div class = "add-player" id = "player-add">
+                        <label for = "name">Name:</label>
+                        <input name="name" id="name" type="text" required/>
+                    </div>
+
+                    <div class = "add-player" id = "submit-add">
+                        <input id = "add-submit" type="submit"/>  
+                    </div>
+
+                </form>
+
+                
+                <form class = "add-form">
+                    <div class = "form-entry" id = "team-name-entry">
+                        <label for="team">Team Name: </label>
+                        <select name="team" id="team">
+                            <option value = "team-select">Select a Team: </option>
+                        </select>
+                    </div>
+                    
+                    <div class = "form-entry" id = "player-name-entry">
+                        <label for="player">Player Name:</label>
+                        <select name="player" id="player">
+                            <option value = "player-select">Select a Player: </option>
+                            <option value = "new-player">Add New Player...</option>
+                        </select>
+                    </div>
+                    
+                    <div class = "form-entry" id = "points-entry">
+                        <label for="points">Points: </label>
+                        <input name="points" id="points" type = "number" required></input>
+                    </div>
+
+                    <div class = "form-entry" id = "rebounds-entry">
+                        <label for="rebounds">Rebounds: </label>
+                        <input name="rebounds" id="rebounds" type = "number" required></input>
+                    </div>
+
+
+
+
+                    <div class = "form-entry" id = "assists-entry">
+                        <label for="assists">Assists: </label>
+                        <input name="assists" id="assists" type = "number" required></input>
+                    </div>
+
+                    <div class = "form-entry" id = "steals-entry">
+                        <label for="steals">Steals: </label>
+                        <input name="steals" id="steals" type = "number" required></input>
+                    </div>
+
+                    <div class = "form-entry" id = "blocks-entry">
+                        <label for="blocks">Blocks: </label>
+                        <input name="blocks" id="blocks" type = "number" required></input>
+                    </div>
+
+                    <div class = "form-entry" id = "turnovers-entry">
+                        <label for="turnovers">Turnovers: </label>
+                        <input name="turnovers" id="turnovers" type = "number" required></input>
+                    </div>
+
+                    <div class = "form-entry" id = "fgm-entry">
+                        <label for="fgm">FGM: </label>
+                        <input name="fgm" id="fgm" type = "number" required></input>
+                    </div>
+
+                    <div class = "form-entry" id = "fga-entry">
+                        <label for="fga">FGA: </label>
+                        <input name="fga" id="fga" type = "number" required></input>
+                    </div>
+
+                    <div class = "form-entry" id = "threes-made-entry">
+                        <label for="threes-made">3PTM: </label>
+                        <input name="threes-made" id="threes-made" type = "number" required></input>
+                    </div>
+
+                    <div class = "form-entry" id = "threes-attempted-entry">
+                        <label for="threes-attempted">3PTA: </label>
+                        <input name="threes-attempted" id="threes-attempted" type = "number" required></input>
+                    </div>
+
+                    <div class = "form-entry" id = "ftm-entry">
+                        <label for="ftm">FTM: </label>
+                        <input name="ftm" id="ftm" type = "number" required></input>
+                    </div>
+
+                    <div class = "form-entry" id = "fta-entry">
+                        <label for="fta">FTA: </label>
+                        <input name="fta" id="fta" type = "number" required></input>
+                    </div>
+
+                    <div class = "form-entry" id = "off-rebounds-entry">
+                        <label for="off-rebounds">Off. Rebounds: </label>
+                        <input name="off-rebounds" id="off-rebounds" type = "number" required></input>
+                    </div>
+
+                    <div class = "form-entry" id = "fouls-entry">
+                        <label for="fouls">Fouls: </label>
+                        <input name="fouls" id="fouls" type = "number" required></input>
+                    </div>
+
+                    <div class = "form-entry" id = "dunks-entry">
+                        <label for="dunks">Dunks: </label>
+                        <input name="dunks" id="dunks" type = "number" required></input>
+                    </div>
+
+                    <div class = "form-entry" id = "submit-entry">
+                        <input id = "form-submit" type="submit"/>  
+                    </div>
+                </form>
+            </div>
+            
+        </main>
+    </div>
+    
+    <script src = "script.js"></script>
+</body>
+</html>

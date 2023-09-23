@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buchak 2k Stat Tracker</title>
+    <link rel = "stylesheet" href = "style.css"/>
+</head>
+<body>
+    
+    <header>
+        <h1>2024 2k Season Stats</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href = "index.html">Home</a>
+                </li>
+                <li>
+                    <a href = "addStats.html">Add Stats</a>
+                </li>
+                <li>
+                    <a href = "updateStats.html">Update Stats</a>
+                </li>
+                <li>
+                    <a href = "analyzeStats.html">Analyze Stats</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class = "wrap">
+        <main>
+            
+            <div class = "text">
+                <h2>Analyze Stats</h2>
+
+                <form class = "analyze-form">
+                    <div class = "form-entry" id = "stat-entry">
+                        <label for="stat">Stat: </label>
+                        <select name="stat" id="stat">
+                            <option value = "stat-points">Points</option>
+                            <option value = "stat-rebounds">Rebounds</option>
+                            <option value = "stat-rebounds">Assists</option>
+                            <option value = "stat-rebounds">Steals</option>
+                            <option value = "stat-rebounds">Blocks</option>
+                            <option value = "stat-rebounds">Turnovers</option>
+                            <!-- <option value = "stat-rebounds">FTA</option>
+                            <option value = "stat-rebounds">FTM</option>
+                            <option value = "stat-rebounds">3PTA</option>
+                            <option value = "stat-rebounds">3PTM</option>
+                            <option value = "stat-rebounds">FTA</option>
+                            <option value = "stat-rebounds">FTM</option> -->
+                            <option value = "stat-rebounds">Off. Rebounds</option>
+                            <option value = "stat-rebounds">Fouls</option>
+                            <option value = "stat-rebounds">Dunks</option>
+                            <option value = "stat-fgp">FG%</option>
+                            <option value = "stat-3ptp">3PT%</option>
+                            <option value = "stat-ftp">FT%</option>
+                        </select>
+                    </div>
+
+                    <div class = "form-entry" id = "analyze-submit-entry">
+                        <input id = "analyze-form-submit" type="submit"/>  
+                    </div>
+                </form>
+
+                <table>
+                    <thead>
+                        <tr class = "head-row">
+                            <th>Name</th>
+                            <th>Points</th>
+                            <th>Assists</th>
+                            <th>Rebounds</th>
+                            <th>Steals</th>
+                            <th>Blocks</th>
+                            <th>Turnovers</th>
+                            <th>FG%</th>
+                            <th>3PT%</th>
+                            <th>FT%</th>
+                            <th>OReb</th>
+                            <th>Fouls</th>
+                            <th>Dunks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class = "odd-row">
+                            <td>Steph</td>
+                            <td>40</td>
+                            <td>4</td>
+                            <td>11</td>
+                        </tr>
+                        <tr class = "even-row">
+                            <td>Giannis</td>
+                            <td>34</td>
+                            <td>24</td>
+                            <td>5</td>
+                        </tr>
+                        <tr class = "odd-row">
+                            <td>McCullom</td>
+                            <td>15</td>
+                            <td>4</td>
+                            <td>21</td>
+                        </tr>
+                        <tr class = "even-row">
+                            <td>McCullom</td>
+                            <td>15</td>
+                            <td>4</td>
+                            <td>21</td>
+                        </tr>
+                        <tr class = "odd-row">
+                            <td>McCullom</td>
+                            <td>15</td>
+                            <td>4</td>
+                            <td>21</td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+            
+        </main>
+    </div>
+    
+    <script src = "script.js"></script>
+</body>
+</html>

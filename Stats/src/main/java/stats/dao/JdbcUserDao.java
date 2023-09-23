@@ -116,32 +116,53 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public Stat getMaxByStat(String stat) {
-        String sql = "SELECT SUM(" + stat + ") AS total, name FROM ind_game JOIN player ON player_id = player.id GROUP BY name;";
+    public List<Stat> getMaxByStat(String stat) {
+
+        if(stat.equalsIgnoreCase("fg") || stat.equalsIgnoreCase("3pt") || stat.equalsIgnoreCase("ft")){
+            return getMaxPercentage(stat);
+        }
+        String sql = "SELECT CAST(SUM(" + stat + ") AS numeric(6, 2) )/ COUNT(" + stat + ") AS total, name FROM ind_game JOIN player ON " +
+                "player_id = player.id GROUP BY name ORDER BY total DESC LIMIT 5;";
         List<Stat> listTotal = new ArrayList<>();
         try{
             SqlRowSet row = jdbcTemplate.queryForRowSet(sql);
             while(row.next()){
                 Stat newStat = new Stat();
-                newStat.setStat(row.getInt("total"));
                 newStat.setName(row.getString("name"));
+                newStat.setStat(row.getDouble("total"));
                 listTotal.add(newStat);
             }
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
 
-        double max = 0;
-        int index = 0;
-        for(int i = 0; i < listTotal.size(); i++){
-            if(listTotal.get(i).getStat() > max){
-                max = listTotal.get(i).getStat();
-                index = i;
-            }
+        return listTotal;
+    }
+
+    public List<Stat> getMaxPercentage(String stat){
+        String sql = "";
+        if (stat.equals("3PT")){
+            sql = "SELECT CAST(SUM(threes_made) AS numeric(6, 2)) / SUM(threes_attempted) AS total, name FROM ind_game JOIN player " +
+                    "ON player_id = player.id GROUP BY name ORDER BY total DESC LIMIT 5;";
+        } else {
+            stat = stat.toLowerCase();
+            sql = "SELECT CAST(SUM(" + stat + "m) AS numeric(6, 2) )/ SUM(" + stat + "a) AS total, name FROM ind_game JOIN player " +
+                    "ON player_id = player.id GROUP BY name ORDER BY total DESC LIMIT 5;";
         }
+        List<Stat> listTotal = new ArrayList<>();
+        try{
+            SqlRowSet row = jdbcTemplate.queryForRowSet(sql);
+            while(row.next()){
+                Stat newStat = new Stat();
+                newStat.setName(row.getString("name"));
+                newStat.setStat(row.getDouble("total") * 100);
+                listTotal.add(newStat);
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return listTotal;
 
-
-        return listTotal.get(index);
     }
 
     @Override
@@ -192,6 +213,25 @@ public class JdbcUserDao implements UserDao {
         return stats;
     }
 
+
+    public List<String> getPlayersByTeam(String team){
+        int teamId = getIdByTeam(team);
+        List<String> players = new ArrayList<>();
+
+        String sql = "SELECT name FROM player WHERE team_id = ?;";
+        try {
+            SqlRowSet row = jdbcTemplate.queryForRowSet(sql, teamId);
+            while(row.next()){
+                players.add(row.getString("name"));
+            }
+        } catch (ResourceAccessException e){
+            System.out.println(e.getMessage());
+        }
+
+
+
+        return players;
+    }
 
 
 

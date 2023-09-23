@@ -21,8 +21,10 @@ public interface UserDao {
     boolean addPlayer (Player player);
     boolean addStatsForPlayer (IndGame stats);
     boolean addStatsForGame (Game game);
-    Stat getMaxByStat (String stat);
+    List<Stat> getMaxByStat (String stat);
+    List<Stat> getMaxPercentage(String stat);
     double getPerGameStat (String stat, String playerName);
     TotalPlayerStats getPlayerStats(String playerName);
+    List<String> getPlayersByTeam(String team);
 
 }
