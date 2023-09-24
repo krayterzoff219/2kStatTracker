@@ -3,6 +3,8 @@
         <div class = "text">
             <p>Welcome to the 2024 Season! Below are some of the top performers from this year.
                 Follow the links above to add, update, or analyze stats.
+<br><br>
+                *ALL STATS ARE PER GAME STATS*
             </p>
         <table v-if= "isLoaded">
             <thead>

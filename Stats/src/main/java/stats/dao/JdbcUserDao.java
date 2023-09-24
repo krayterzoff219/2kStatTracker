@@ -63,6 +63,42 @@ public class JdbcUserDao implements UserDao {
         return gameList;
     }
 
+    public List<GameIDs> getGamesByTeam(String team){
+        String sql = "SELECT * FROM game WHERE home_team_id = " +
+                "(SELECT id FROM team WHERE nickname = ?);";
+        String reverseSQL = "SELECT * FROM game WHERE away_team_id = " +
+                "(SELECT id FROM team WHERE nickname = ?);";
+        List<GameIDs> gameList = new ArrayList<>();
+        try {
+            SqlRowSet row = jdbcTemplate.queryForRowSet(sql, team);
+            while(row.next()){
+                GameIDs game = new GameIDs();
+
+                game.setId(row.getInt("id"));
+                game.setHomeName(getTeamById(row.getInt("home_team_id")));
+                game.setAwayName(getTeamById(row.getInt("away_team_id")));
+                game.setHomeScore(row.getInt("home_team_score"));
+                game.setAwayScore(row.getInt("away_team_score"));
+                gameList.add(game);
+            }
+            row = jdbcTemplate.queryForRowSet(reverseSQL, team);
+            while(row.next()){
+                GameIDs game = new GameIDs();
+
+                game.setId(row.getInt("id"));
+                game.setHomeName(getTeamById(row.getInt("home_team_id")));
+                game.setAwayName(getTeamById(row.getInt("away_team_id")));
+                game.setHomeScore(row.getInt("home_team_score"));
+                game.setAwayScore(row.getInt("away_team_score"));
+                gameList.add(game);
+            }
+        } catch (ResourceAccessException e){
+            System.out.println(e.getMessage());
+        }
+
+        return gameList;
+    }
+
     public boolean addPlayer (Player player){
         String sql = "INSERT INTO player (team_id, name) VALUES (?, ?) RETURNING id;";
         try {
@@ -186,27 +222,34 @@ public class JdbcUserDao implements UserDao {
     @Override
     public TotalPlayerStats getPlayerStats(String playerName) {
         String sql = "SELECT * FROM ind_game WHERE player_id = ?;";
+        String countSql = "SELECT Count(points) AS num FROM ind_game WHERE player_id = ?;";
         TotalPlayerStats stats = new TotalPlayerStats();
+        int count = 1;
         try {
+            SqlRowSet rowCount = jdbcTemplate.queryForRowSet(countSql, getIdByPlayer(playerName));
+            if(rowCount.next()){
+                count = rowCount.getInt("num");
+            }
             SqlRowSet row = jdbcTemplate.queryForRowSet(sql, getIdByPlayer(playerName));
             while(row.next()){
-                stats.setPlayerId(row.getInt("player_id"));
-                stats.setPoints(stats.getPoints() + row.getInt("points"));
-                stats.setAssists(stats.getAssists() + row.getInt("assists"));
-                stats.setRebounds(stats.getRebounds() + row.getInt("rebounds"));
-                stats.setSteals(stats.getSteals() + row.getInt("steals"));
-                stats.setBlocks(stats.getBlocks() + row.getInt("blocks"));
-                stats.setFouls(stats.getFouls() + row.getInt("fouls"));
+                stats.setPlayerId(row.getInt("player_id")/count);
+                stats.setPoints(stats.getPoints() + row.getInt("points")/count);
+                stats.setAssists(stats.getAssists() + row.getInt("assists")/count);
+                stats.setRebounds(stats.getRebounds() + row.getInt("rebounds")/count);
+                stats.setSteals(stats.getSteals() + row.getInt("steals")/count);
+                stats.setBlocks(stats.getBlocks() + row.getInt("blocks")/count);
+                stats.setFouls(stats.getFouls() + row.getInt("fouls")/count);
                 stats.setFga(stats.getFga() + row.getInt("fga"));
                 stats.setFgm(stats.getFgm() + row.getInt("fgm"));
                 stats.setThreesAttempted(stats.getThreesAttempted() + row.getInt("threes_attempted"));
                 stats.setThreesMade(stats.getThreesMade() + row.getInt("threes_made"));
                 stats.setFta(stats.getFta() + row.getInt("fta"));
                 stats.setFtm(stats.getFtm() + row.getInt("ftm"));
-                stats.setOffRebounds(stats.getOffRebounds() + row.getInt("off_rebounds"));
-                stats.setTurnovers(stats.getTurnovers() + row.getInt("turnovers"));
-                stats.setDunks(stats.getDunks() + row.getInt("dunks"));
+                stats.setOffRebounds(stats.getOffRebounds() + row.getInt("off_rebounds")/count);
+                stats.setTurnovers(stats.getTurnovers() + row.getInt("turnovers")/count);
+                stats.setDunks(stats.getDunks() + row.getInt("dunks")/count);
             }
+
         } catch (ResourceAccessException e){
             System.out.println(e.getMessage());
         }

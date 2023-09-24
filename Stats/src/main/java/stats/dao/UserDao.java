@@ -18,6 +18,7 @@ public interface UserDao {
 
 
     List<Game> getGamesByTeams (String team1, String team2);
+    List<GameIDs> getGamesByTeam(String team);
     boolean addPlayer (Player player);
     boolean addStatsForPlayer (IndGame stats);
     boolean addStatsForGame (Game game);
@@ -26,5 +27,6 @@ public interface UserDao {
     double getPerGameStat (String stat, String playerName);
     TotalPlayerStats getPlayerStats(String playerName);
     List<String> getPlayersByTeam(String team);
+
 
 }

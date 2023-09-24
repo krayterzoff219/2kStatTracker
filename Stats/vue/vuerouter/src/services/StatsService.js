@@ -5,8 +5,8 @@ export default {
         return axios.get("/max/" + stat);
     },
 
-    getGamesByTeam(team1, team2){
-        return axios.get("/game/" + team1 + "/" + team2);
+    getGamesByTeam(team1){
+        return axios.get("/game/" + team1);
     },
 
     getPerGameStat(playerName, statType){
@@ -21,11 +21,11 @@ export default {
         return axios.get("/" + team + "/players");
     },
 
-    addGameStats(){
-
+    addGameStats(game){
+        return axios.post("/stats/game", game)
     },
 
-    addPlayerStats(){
-
+    addPlayerStats(player){
+        return axios.post("/stats/player", player);
     }
 }

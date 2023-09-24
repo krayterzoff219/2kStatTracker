@@ -5,16 +5,16 @@
         <nav>
             <ul>
                 <li>
-                    <router-link v-bind:to= "{name: 'home'}">Home</router-link>
+                    <router-link id="homeNav" v-bind:to= "{name: 'home'}">Home</router-link>
                 </li>
                 <li>
-                    <router-link v-bind:to= "{name: 'add'}">Add Stats</router-link>
+                    <router-link id="addNav" v-bind:to= "{name: 'add'}">Add Stats</router-link>
                 </li>
                 <li>
-                    <router-link v-bind:to= "{name: 'update'}">Update Stats</router-link>
+                    <router-link id="scoreNav" v-bind:to= "{name: 'add-scores'}">Add Game Score</router-link>
                 </li>
                 <li>
-                    <router-link v-bind:to= "{name: 'analyze'}">Analyze Stats</router-link>
+                    <router-link id="analyzeNav" v-bind:to= "{name: 'analyze'}">Analyze Stats</router-link>
                 </li>
             </ul>
         </nav>

@@ -23,9 +23,9 @@ public class AppController {
         return userDao.getMaxByStat(stat);
     }
 
-    @RequestMapping(path = "/game/{team1}/{team2}", method = RequestMethod.GET)
-    public List<Game> getGamesByTeam (@PathVariable String team1, @PathVariable String team2){
-        return userDao.getGamesByTeams(team1, team2);
+    @RequestMapping(path = "/game/{team}", method = RequestMethod.GET)
+    public List<GameIDs> getGamesByTeam (@PathVariable String team){
+        return userDao.getGamesByTeam(team);
     }
 
     @RequestMapping(path = "/perGame", method = RequestMethod.GET)

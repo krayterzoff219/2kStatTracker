@@ -1,17 +1,17 @@
 <template>
     <div class="wrap">
         <div class = "text">
+            <h2>Analyze Stats</h2>
             <analyze-form/>
-            <analyze-table/>
+
         </div>
     </div>
 </template>
 
 <script>
 import AnalyzeForm from '@/components/AnalyzeForm.vue'
-import AnalyzeTable from '@/components/AnalyzeTable.vue'
 export default {
-  components: { AnalyzeForm, AnalyzeTable },
+  components: { AnalyzeForm },
 
 }
 </script>

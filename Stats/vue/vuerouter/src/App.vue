@@ -15,6 +15,11 @@ export default {
 
 
 <style>
+.router-link-exact-active {
+        border-bottom: 1px solid #123456;
+        /* display: none; */
+    }
+
 body {
     font-size: large;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -135,7 +140,7 @@ label{
     width: 80%;
 }
 
-.add-form, .update-form{
+.add-form, .update-form, .add-game-score-form{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 

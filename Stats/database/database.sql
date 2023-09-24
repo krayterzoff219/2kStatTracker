@@ -88,11 +88,707 @@ INSERT INTO team (city, nickname) VALUES ('Toronto', 'Raptors');
 INSERT INTO team (city, nickname) VALUES ('Utah', 'Jazz');
 INSERT INTO team (city, nickname) VALUES ('Washington', 'Wizards');
 
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = '76ers'), 'Joel Embiid');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = '76ers'), 'James Harden');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = '76ers'), 'Tyrese Maxey');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = '76ers'), 'Tobias Harris');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = '76ers'), 'DeAnthony Melton');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = '76ers'), 'Mohamed Bamba');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = '76ers'), 'Patrick Beverley');
+
+
+
 INSERT INTO player (team_id, name)
 VALUES ((SELECT id FROM team where nickname = 'Bucks'), 'Giannis Antetounkoumpo');
 
 INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Bucks'), 'Jrue Holiday');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Bucks'), 'Khris Middleton');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Bucks'), 'Brook Lopez');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Bucks'), 'Bobby Portis');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Bucks'), 'Malik Beasley');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Bucks'), 'Pat Connaughton');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Bucks'), 'Jae Crowder');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Bucks'), 'Grayson Allen');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Bulls'), 'Demar Derozan');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Bulls'), 'Zach Lavine');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Bulls'), 'Nikola Vucevic');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Bulls'), 'Lonzo Ball');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Bulls'), 'Alex Caruso');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Bulls'), 'Patrick Williams');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Bulls'), 'Andre Drummond');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Cavaliers'), 'Donovan Mitchell');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Cavaliers'), 'Darius Garland');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Cavaliers'), 'Evan Mobley');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Cavaliers'), 'Jarrett Allen');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Cavaliers'), 'Caris Levert');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Cavaliers'), 'Max Strus');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Cavaliers'), 'Isaac Okoro');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Celtics'), 'Jayson Tatum');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Celtics'), 'Jaylen Brown');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Celtics'), 'Kristaps Porzingis');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Celtics'), 'Malcolm Brogdon');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Celtics'), 'Robert Williams III');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Celtics'), 'Al Horford');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Celtics'), 'Derrick White');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Clippers'), 'Kawhi Leonard');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Clippers'), 'Paul George');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Clippers'), 'Russell Westbrook');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Clippers'), 'Ivica Zubac');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Clippers'), 'Norman Powell');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Clippers'), 'Mason Plumlee');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Clippers'), 'Kenyon Martin Jr');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Grizzlies'), 'Ja Morant');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Grizzlies'), 'Jaren Jackson Jr');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Grizzlies'), 'Desmond Bane');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Grizzlies'), 'Marcus Smart');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Grizzlies'), 'Steven Adams');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Grizzlies'), 'Brandon Clarke');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Grizzlies'), 'Xavier Tillman');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Hawks'), 'Trae Young');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Hawks'), 'Dejounte Murray');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Hawks'), 'Clint Capela');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Hawks'), 'Onyeka Okungwu');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Hawks'), 'DeAndre Hunter');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Hawks'), 'Bogdan Bogdanovic');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Hawks'), 'Saddiq Bey');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Heat'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Heat'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Heat'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Heat'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Heat'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Heat'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Heat'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Hornets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Hornets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Hornets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Hornets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Hornets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Hornets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Hornets'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Jazz'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Jazz'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Jazz'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Jazz'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Jazz'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Jazz'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Jazz'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Kings'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Kings'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Kings'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Kings'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Kings'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Kings'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Kings'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Knicks'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Knicks'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Knicks'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Knicks'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Knicks'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Knicks'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Knicks'), '');
+
+
+
+INSERT INTO player (team_id, name)
 VALUES ((SELECT id FROM team where nickname = 'Lakers'), 'Anthony Davis');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Lakers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Lakers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Lakers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Lakers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Lakers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Lakers'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Magic'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Magic'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Magic'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Magic'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Magic'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Magic'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Magic'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Mavericks'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Mavericks'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Mavericks'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Mavericks'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Mavericks'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Mavericks'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Mavericks'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Nets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Nets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Nets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Nets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Nets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Nets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Nets'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Nuggets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Nuggets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Nuggets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Nuggets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Nuggets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Nuggets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Nuggets'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pacers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pacers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pacers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pacers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pacers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pacers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pacers'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pelicans'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pelicans'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pelicans'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pelicans'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pelicans'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pelicans'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pelicans'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pistons'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pistons'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pistons'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pistons'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pistons'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pistons'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Pistons'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Raptors'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Raptors'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Raptors'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Raptors'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Raptors'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Raptors'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Raptors'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Rockets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Rockets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Rockets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Rockets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Rockets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Rockets'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Rockets'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Spurs'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Spurs'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Spurs'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Spurs'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Spurs'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Spurs'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Spurs'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Suns'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Suns'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Suns'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Suns'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Suns'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Suns'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Suns'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Thunder'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Thunder'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Thunder'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Thunder'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Thunder'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Thunder'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Thunder'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Timberwolves'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Timberwolves'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Timberwolves'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Timberwolves'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Timberwolves'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Timberwolves'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Timberwolves'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Timberwolves'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Trail Blazers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Trail Blazers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Trail Blazers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Trail Blazers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Trail Blazers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Trail Blazers'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Trail Blazers'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Warriors'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Warriors'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Warriors'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Warriors'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Warriors'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Warriors'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Warriors'), '');
+
+
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Wizards'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Wizards'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Wizards'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Wizards'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Wizards'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Wizards'), '');
+
+INSERT INTO player (team_id, name)
+VALUES ((SELECT id FROM team where nickname = 'Wizards'), '');
+
+
+
+
 
 INSERT INTO game (home_team_id, away_team_id, home_team_score, away_team_score)
 VALUES ((SELECT id FROM team WHERE nickname = 'Bucks'), (SELECT id FROM team WHERE nickname = 'Lakers'), 120, 104);

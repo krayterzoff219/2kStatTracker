@@ -1,5 +1,6 @@
 <template>
     <div>
+        <p>*ALL STATS ARE PER GAME STATS*</p>
         <table>
                     <thead>
                         <tr class = "head-row">
