@@ -177,7 +177,7 @@ public class JdbcUserDao implements UserDao {
 
     public List<Stat> getMaxPercentage(String stat){
         String sql = "";
-        if (stat.equals("3PT")){
+        if (stat.equalsIgnoreCase("3PT")){
             sql = "SELECT CAST(SUM(threes_made) AS numeric(6, 2)) / SUM(threes_attempted) AS total, name FROM ind_game JOIN player " +
                     "ON player_id = player.id GROUP BY name ORDER BY total DESC LIMIT 5;";
         } else {
