@@ -6,6 +6,9 @@
 <br><br>
                 *ALL STATS ARE PER GAME STATS*
             </p>
+            <div class = "offline" v-if="serverOffline">
+                Server is Offline
+            </div>
         <table v-if= "isLoaded">
             <thead>
                 <tr class = "head-row">
@@ -47,6 +50,7 @@ export default {
     data(){
         return{
             isLoaded: false,
+            serverOffline: false,
             leadingScorer: {
                 name: '',
                 points: '',
@@ -89,7 +93,7 @@ export default {
                     if(error.response){
                         console.log(error.response);
                     } else if(error.request){
-                        window.alert("Server Error");
+                        this.serverOffline = true;
                     }
                 }
         );
@@ -113,7 +117,7 @@ export default {
                     if(error.response){
                         console.log(error.response);
                     } else if(error.request){
-                        window.alert("Server Error");
+                        this.serverOffline = true;
                     }
                 }
         );
@@ -137,7 +141,7 @@ export default {
                     if(error.response){
                         console.log(error.response);
                     } else if(error.request){
-                        window.alert("Server Error");
+                        this.serverOffline = true;
                     }
                 }
         );

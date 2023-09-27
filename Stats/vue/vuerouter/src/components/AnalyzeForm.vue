@@ -25,6 +25,9 @@
                 </form>
 
                 <p>*ALL STATS ARE PER GAME STATS*</p>
+                <div class = "offline" v-if="serverOffline">
+                    Server is Offline
+                 </div>
         <table v-if="isLoaded">
                     <thead>
                         <tr class = "head-row">
@@ -168,6 +171,7 @@ import service from '../services/StatsService.js';
 export default {
     data(){
         return{
+            serverOffline: false,
             players: [
                 {
                     name: '',
@@ -427,7 +431,7 @@ export default {
                     if(error.response){
                         console.log(error.response);
                     } else if(error.request){
-                        window.alert("Server Error");
+                        this.serverOffline = true;
                     }
                 }
             );

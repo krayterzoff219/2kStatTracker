@@ -41,6 +41,10 @@
                         <input  type="submit"/>  
                     </div>
                 </form>
+
+                <div class = "offline" v-if="serverOffline">
+                    Server is Offline
+                </div>
             </div>
     </div>
 </template>
@@ -51,6 +55,7 @@ import service from '../services/StatsService.js';
 export default {
     data(){
         return {
+            serverOffline: false,
             game: {
                 home_team_name: '',
                 away_team_name: '',
@@ -79,9 +84,9 @@ export default {
             ).catch(
                 (error) => {
                     if(error.response){
-                        window.alert("Uh oh Big Doggo, doggo must not wiegh more than 200 lbs!");
+                        console.log(error.response);
                     } else if(error.request){
-                        window.alert("Server Error");
+                        this.serverOffline = true;
                     }
                 }
             )

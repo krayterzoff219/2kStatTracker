@@ -123,6 +123,10 @@
                         <input id = "form-submit" type="submit"/>  
                     </div>
                 </form>
+
+                <div class = "offline" v-if="serverOffline">
+                    Server is Offline
+                </div>
             </div>
             
        
@@ -135,6 +139,7 @@ import service from '../services/StatsService.js';
 export default {
     data(){
         return {
+            serverOffline: false,
             games: [],
             players: [],
             teamName: '',
@@ -170,7 +175,7 @@ export default {
                     }
                 }
             )
-            console.log(this.players);
+           
         },
 
         fillGames(){
@@ -182,7 +187,7 @@ export default {
                     }
                 }
             )
-            console.log(this.games);
+           
         },
 
         addPlayerStats(){
@@ -215,9 +220,9 @@ export default {
             ).catch(
                 (error) => {
                     if(error.response){
-                        window.alert("Uh oh Big Doggo, doggo must not wiegh more than 200 lbs!");
+                        console.log(error.response);
                     } else if(error.request){
-                        window.alert("Server Error");
+                        this.serverOffline = true;
                     }
                 }
             )

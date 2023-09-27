@@ -15,6 +15,11 @@ export default {
 
 
 <style>
+
+.offline {
+    background-color: chartreuse;
+}
+
 .router-link-exact-active {
         border-bottom: 1px solid #123456;
         /* display: none; */
