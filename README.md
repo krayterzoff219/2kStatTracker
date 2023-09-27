@@ -22,4 +22,5 @@ HTML, CSS, and vanilla JavaScript code for a framework of the website. Updated u
 
 
 #database
+
 Script for a PostgreSQL database that keeps track of player stats and game stats.
