@@ -19,3 +19,7 @@ Front-end web application that makes calls to server and uses responses to popul
 #website
 
 HTML, CSS, and vanilla JavaScript code for a framework of the website. Updated using the Vue Framework, currently outdated.
+
+
+#database
+Script for a PostgreSQL database that keeps track of player stats and game stats.
