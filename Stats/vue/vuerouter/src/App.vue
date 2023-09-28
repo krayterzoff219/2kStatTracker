@@ -173,4 +173,36 @@ label{
     color: white;
     text-align: center;
 }
+
+
+@media only screen and (max-width: 900px) {
+header{
+    height: 12vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "title"
+    "links";
+    padding-bottom: 10vh;
+}
+
+.wrap {
+    height: 67vh;
+}
+
+header h1 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 30px;
+}
+
+.add-form, .add-game-score-form{
+    font-size: 12px;
+}
+
+.add-form .form-entry, label{
+    padding: 5px;
+    width: 90%;
+}
+}
 </style>
