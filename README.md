@@ -1,7 +1,7 @@
 # 2kStatTracker
 Tracks stats for a custom 2k season
 
-# Demo
+## Demo
 
 Please visit https://demo2kstattracker.netlify.app/ for a demo. The server will probably be offline, but the framework will still be usable.
 
