@@ -3,7 +3,7 @@ Tracks stats for a custom 2k season
 
 ## Demo
 
-Please visit https://demo2kstattracker.netlify.app/ for a demo. The server will probably be offline, but the framework will still be usable. A fully functional demo is coming soon!
+Please visit https://krayterzoff219.github.io/ for a demo.
 
 
 
