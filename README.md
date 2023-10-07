@@ -3,7 +3,7 @@ Tracks stats for a custom 2k season
 
 ## Demo
 
-Please visit https://krayterzoff219.github.io/ for a demo.
+Please visit krayterzoff219.github.io for a demo.
 
 
 
